@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <title>变压器运行监控</title>
+    <!-- <link rel="stylesheet" href="../../iconfont/iconfont.css"> -->
+    <!-- <link rel="stylesheet" href="../../layui/css/layui.css"> -->
+     <link rel="stylesheet" href="./iconfont/iconfont.css">
+     <link rel="stylesheet" href="./layui/css/layui.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div class="app">
+        <div class="header">
+            <div class="header_one">
+                <div class="header_one_item">
+                    <span>变压器01</span>
+                    <i class="iconfont icon-close"></i>
+                </div>
+            </div>
+            <div class="header_calendar">
+                <div class="header_calendar_left" onclick="prevDate()">
+                    <i class="iconfont icon-ico-left-arrow"></i>
+                    <span class="header_calendar_left_txt">上一日</span>
+                </div>
+                <div class="header_calendar_center">
+                    <div class="header_calendar_center_date">
+                        <span></span>
+                        <i class="iconfont icon-riqi"></i>
+                    </div>
+                    <input type="date" id="header-calendar-date">
+                </div>
+                <div class="header_calendar_right" onclick="nextDate()">
+                    <span class="header_calendar_right_txt">下一日</span>
+                    <i class="iconfont icon-ico-right-arrow"></i>
+                </div>
+            </div>
+            <div class="header_searchBtn">
+                <i class="iconfont icon-search"></i>
+                <span>查询</span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content_one">
+                <div class="content_one_left">
+                    <div class="content_title">电力负荷</div>
+                    <div class="content_one_left_list">
+                        <div class="content_one_left_list_item">
+                            <div class="content_one_left_list_item_l">
+                                <i class="iconfont icon-zhexiantu"></i>
+                            </div>
+                            <div class="content_one_left_list_item_r">
+                                <div class="content_one_left_list_item_r_txt1">500.0<span>KVA</span></div>
+                                <div class="content_one_left_list_item_r_txt2">额定容量</div>
+                            </div>
+                        </div>
+                        <div class="content_one_left_list_item">
+                            <div class="content_one_left_list_item_l">
+                                <i class="iconfont icon-zhexiantu"></i>
+                            </div>
+                            <div class="content_one_left_list_item_r">
+                                <div class="content_one_left_list_item_r_txt1">191.73<span>KVA</span></div>
+                                <div class="content_one_left_list_item_r_txt2">运行负荷</div>
+                            </div>
+                        </div>
+                        <div class="content_one_left_list_item">
+                            <div class="content_one_left_list_item_l">
+                                <i class="iconfont icon-zhexiantu"></i>
+                            </div>
+                            <div class="content_one_left_list_item_r">
+                                <div class="content_one_left_list_item_r_txt1">310.67<span>KVA</span></div>
+                                <div class="content_one_left_list_item_r_txt2">负荷余量</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_one_left_type">
+                        <div class="content_one_left_type_item">正常运行</div>
+                        <div class="content_one_left_type_item">经济运行</div>
+                        <div class="content_one_left_type_item">高损耗运行</div>
+                    </div>
+                    <div class="content_one_left_tubiao">
+                        <div class="content_one_left_tubiao_tit">0%正常运行</div>
+                        <div class="content_one_left_tubiao_top">
+                            <div class="content_one_left_tubiao_top_item"></div>
+                            <div class="content_one_left_tubiao_top_item"></div>
+                            <div class="content_one_left_tubiao_top_item"></div>
+                            <div class="content_one_left_tubiao_top_item"></div>
+                            <div class="content_one_left_tubiao_top_item"></div>
+                            <div class="content_one_left_tubiao_top_item"></div>
+                            <div class="content_one_left_tubiao_top_item"></div>
+                            <div class="content_one_left_tubiao_top_item"></div>
+                            <div class="content_one_left_tubiao_top_item"></div>
+                            <div class="content_one_left_tubiao_top_item"></div>
+                        </div>
+                        <div class="content_one_left_tubiao_cen">
+                            <!-- 经济运行 进度条 -->
+                            <div class="content_one_left_tubiao_cen_1"></div>
+                            <!-- 高损耗运行 进度条 -->
+                            <div class="content_one_left_tubiao_cen_2"></div>
+                            <!-- 指针 -->
+                            <div class="content_one_left_tubiao_cen_3">
+                                <div class="content_one_left_tubiao_cen_3_zj"></div>
+                            </div>
+                        </div>
+                        <div class="content_one_left_tubiao_bom">
+                            <div class="content_one_left_tubiao_bom_item">10%</div>
+                            <div class="content_one_left_tubiao_bom_item">20%</div>
+                            <div class="content_one_left_tubiao_bom_item">30%</div>
+                            <div class="content_one_left_tubiao_bom_item">40%</div>
+                            <div class="content_one_left_tubiao_bom_item">50%</div>
+                            <div class="content_one_left_tubiao_bom_item">60%</div>
+                            <div class="content_one_left_tubiao_bom_item">70%</div>
+                            <div class="content_one_left_tubiao_bom_item">80%</div>
+                            <div class="content_one_left_tubiao_bom_item">90%</div>
+                            <div class="content_one_left_tubiao_bom_item">100%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content_one_right">
+                    <div class="content_title">功率</div>
+                    <div class="content_one_right_con">
+                        <div class="content_one_right_con_l">
+                            <div class="content_one_right_con_l_item">
+                                <div class="content_one_right_con_l_item_t">
+                                    <div class="content_one_right_con_l_item_t_txt1">189.33</div>
+                                    <div class="content_one_right_con_l_item_t_txt2">kW</div>
+                                </div>
+                                <div class="content_one_right_con_l_item_b">有功功率</div>
+                            </div>
+                            <div class="content_one_right_con_l_item">
+                                <div class="content_one_right_con_l_item_t">
+                                    <div class="content_one_right_con_l_item_t_txt1">64.57</div>
+                                    <div class="content_one_right_con_l_item_t_txt2">kVar</div>
+                                </div>
+                                <div class="content_one_right_con_l_item_b">无功功率</div>
+                            </div>
+                            <div class="content_one_right_con_l_item">
+                                <div class="content_one_right_con_l_item_t">
+                                    <div class="content_one_right_con_l_item_t_txt1">208.0</div>
+                                    <div class="content_one_right_con_l_item_t_txt2">KW</div>
+                                </div>
+                                <div class="content_one_right_con_l_item_b">最大需量</div>
+                            </div>
+                        </div>
+                        <div class="content_one_right_con_r" id="echarts1"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="content_two">
+                <div class="content_two_tags">
+                    <div class="content_two_tags_item content_two_tags_item-active">电流</div>
+                    <div class="content_two_tags_item">电压</div>
+                    <div class="content_two_tags_item">有功功率</div>
+                    <div class="content_two_tags_item">无功功率</div>
+                    <div class="content_two_tags_item">视在功率</div>
+                    <div class="content_two_tags_item">有功电能</div>
+                    <div class="content_two_tags_item">功率因数</div>
+                </div>
+                <div class="content_two_bom" id="echarts2"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- <script src="../../js/jquery-2.0.0.min.js"></script> -->
+<!-- <script src="../../js/echarts.min.js"></script> -->
+ <script src="./js/jquery-2.0.0.min.js"></script>
+ <script src="./js/echarts.min.js"></script>
+<script>
+
+    // 头部日期
+    let dateVal = '';
+    let now = new Date();
+    // 初始化 选择的日期
+    function initDate() {
+        dateVal = `${now.getFullYear()}-${add0(now.getMonth() + 1)}-${add0(now.getDate())}`;
+        $(".header_calendar_center_date span").text(dateVal);
+    }
+    // 点击上一日
+    function prevDate() {
+        now.setDate(now.getDate() - 1);
+        initDate();
+    }
+    // 点击下一日
+    function nextDate() {
+        now.setDate(now.getDate() + 1);
+        initDate();
+    }
+    // 监听日期选择改变
+    $("#header-calendar-date").on('change', function (e) {
+        // 获取选中的日期  
+        const selectedDate = event.target.value;
+        // 打印选中的日期  
+        console.log('选中的日期是:', selectedDate);
+        let arr = selectedDate.split('-');
+        now.setFullYear(arr[0]);
+        now.setMonth(parseInt(arr[1]) - 1);
+        now.setDate(arr[2]);
+        initDate();
+    })
+    // 日期补0
+    function add0(val) {
+        return val > 9 ? val : `0${val}`
+    }
+    initDate();
+
+
+
+
+
+
+    // 电力负荷 指针表 数据
+    let electricLoad = {
+        pointer: 41.00,
+        economy: [25, 40], // 经济运行
+        highLoss: [65, 85], // 高损耗运行
+    };
+    // 初始化 电力负荷 指针表
+    function initElectricLoad() {
+        let economy_width = Math.abs(electricLoad.economy[1] - electricLoad.economy[0]);
+        let highLoss_width = Math.abs(electricLoad.highLoss[1] - electricLoad.highLoss[0]);
+        if (economy_width > 0) {
+            $(".content_one_left_tubiao_cen_1").css({ width: `${economy_width}%`, left: `${electricLoad.economy[0]}%` })
+        } else {
+            $(".content_one_left_tubiao_cen_1").hide();
+        }
+        if (highLoss_width > 0) {
+            $(".content_one_left_tubiao_cen_2").css({ width: `${highLoss_width}%`, left: `${electricLoad.highLoss[0]}%` })
+        } else {
+            $(".content_one_left_tubiao_cen_2").hide();
+        }
+        // 指针
+        $(".content_one_left_tubiao_cen_3").css("left", `${electricLoad.pointer}%`);
+        if (electricLoad.pointer >= electricLoad.highLoss[0] && electricLoad.pointer <= electricLoad.highLoss[1]) {
+            // 高损耗运行
+            $(".content_one_left_tubiao_tit").css('color', '#ac4141');
+            $(".content_one_left_tubiao_tit").text(`${electricLoad.pointer}%高损耗运行`);
+        } else if (electricLoad.pointer >= electricLoad.economy[0] && electricLoad.pointer <= electricLoad.economy[1]) {
+            // 经济运行
+            $(".content_one_left_tubiao_tit").css('color', '#159925');
+            $(".content_one_left_tubiao_tit").text(`${electricLoad.pointer}%经济运行`);
+        } else {
+            // 正常运行
+            $(".content_one_left_tubiao_tit").css('color', '#e2e077');
+            $(".content_one_left_tubiao_tit").text(`${electricLoad.pointer}%正常运行`);
+        }
+    }
+    initElectricLoad();
+
+
+
+    // 功率 饼图
+    let powerPieChartOption = {
+        tooltip: {
+            trigger: 'item'
+        },
+        width: 'auto',
+        legend: {
+            bottom: '5%',
+            left: 'center',
+            textStyle: {
+                color: '#fff',
+            }
+        },
+        series: [
+            {
+                name: 'Access From',
+                type: 'pie',
+                radius: '50%',
+                avoidLabelOverlap: true,
+                padAngle: 5,
+                // clockwise: true, // 饼图的扇区是否是顺时针排布
+                // itemStyle: {
+                //     borderRadius: 10
+                // },
+                label: {
+                    show: true,
+                    // position: 'center',
+                    textStyle: {
+                        color: '#fff'
+                    },
+                    formatter: function (params) {
+                        return `${params.value}%`;
+                    },
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: 16,
+                        fontWeight: 'bold',
+                    },
+                },
+                labelLine: {
+                    show: true
+                },
+                data: [
+                    { value: 25.43, name: '无功功率', itemStyle: { color: '#b645c7' } },
+                    { value: 74.57, name: '有功功率', itemStyle: { color: '#1bbfe5' } },
+                ]
+            }
+        ]
+    };
+    var myChart1 = echarts.init(document.getElementById('echarts1'));
+    myChart1.setOption(powerPieChartOption);
+
+
+    // 底部折线图
+    let arr1 = initRandom();
+    let arr2 = initRandom(arr1);
+    let arr3 = initRandom(arr2);
+    let lineChartOption = {
+        // title: {
+        //     text: 'Temperature Change in the Coming Week'
+        // },
+        // tooltip: {
+        //     trigger: 'axis'
+        // },
+        legend: {
+            top: '5%',
+            left: 'right',
+            textStyle: {
+                color: '#fff',
+            },
+            icon: 'roundRect',
+        },
+        // toolbox: {
+        //     show: true,
+        //     feature: {
+        //         dataZoom: {
+        //             yAxisIndex: 'none'
+        //         },
+        //         dataView: { readOnly: false },
+        //         magicType: { type: ['line', 'bar'] },
+        //         restore: {},
+        //         saveAsImage: {}
+        //     }
+        // },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: [
+                '00:00', '00:10', '00:20', '00:30', '00:40', '00:50',
+                '01:00', '01:10', '01:20', '01:30', '01:40', '01:50',
+                '02:00', '02:10', '02:20', '02:30', '02:40', '02:50',
+                '03:00', '03:10', '03:20', '03:30', '03:40', '03:50',
+                '04:00', '04:10', '04:20', '04:30', '04:40', '04:50',
+                '05:00', '05:10', '05:20', '05:30', '05:40', '05:50',
+                '06:00', '06:10', '06:20', '06:30', '06:40', '06:50',
+                '07:00', '07:10', '07:20', '07:30', '07:40', '07:50',
+                '08:00', '08:10', '08:20', '08:30', '08:40', '08:50',
+                '09:00', '09:10', '09:20', '09:30', '09:40', '09:50',
+                '10:00', '10:10', '10:20', '10:30', '10:40', '10:50',
+                '11:00', '11:10', '11:20', '11:30', '11:40', '11:50',
+                '12:00', '12:10', '12:20', '12:30', '12:40', '12:50',
+                '13:00', '13:10', '13:20', '13:30', '13:40', '13:50',
+                '14:00', '14:10', '14:20', '14:30', '14:40', '14:50',
+            ],
+            axisLabel: {
+                color: 'rgba(255, 255, 255, 0.7)',
+            },
+            splitLine: {
+                show: true, // 确保网格线显示  
+                lineStyle: {
+                    type: 'dashed', // 将网格线设置为虚线  
+                    color: 'rgba(255, 255, 255, 0.1)', // 可选：设置网格线颜色  
+                    width: 1 // 可选：设置网格线宽度  
+                }
+            },
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel: {
+                color: 'rgba(255, 255, 255, 0.7)',
+            },
+            splitLine: {
+                show: true, // 确保网格线显示  
+                lineStyle: {
+                    type: 'dashed', // 将网格线设置为虚线  
+                    color: 'rgba(255, 255, 255, 0.1)', // 可选：设置网格线颜色  
+                    width: 1 // 可选：设置网格线宽度  
+                }
+            },
+        },
+        series: [
+            {
+                name: 'C相电流有效值',
+                type: 'line',
+                data: arr1,
+                itemStyle: { color: '#1bc0bf' },
+                markPoint: {
+                    data: [
+                        { type: 'max', name: 'Max' },
+                        { type: 'min', name: 'Min' }
+                    ],
+                    label: {
+                        color: '#fff',
+                    },
+                },
+            },
+            {
+                name: 'B相电流有效值',
+                type: 'line',
+                data: arr2,
+                itemStyle: { color: '#c59af4' },
+                markPoint: {
+                    data: [
+                        { type: 'max', name: 'Max' },
+                        { type: 'min', name: 'Min' }
+                    ],
+                    label: {
+                        color: '#fff',
+                    },
+                },
+            },
+            {
+                name: 'A相电流有效值',
+                type: 'line',
+                data: arr3,
+                itemStyle: { color: '#d83e60' },
+                markPoint: {
+                    data: [
+                        { type: 'max', name: 'Max' },
+                        { type: 'min', name: 'Min' }
+                    ],
+                    label: {
+                        color: '#fff',
+                    },
+                },
+            }
+        ]
+    };
+    var myChart2 = echarts.init(document.getElementById('echarts2'));
+    myChart2.setOption(lineChartOption);
+
+    // 生成随机数 100 ~ 300 内
+    function initRandom(arr = []) {
+        let list = [];
+        if (!arr.length || true) {
+            for (var i = 0; i < 90; i++) {
+                list[i] = Math.floor(Math.random() * (301 - 100 + 1)) + 100;
+            }
+            return list;
+        } else {
+            for (var i = 0; i < arr.length; i++) {
+                list[i] = arr[i] + 30;
+            }
+            return list;
+        }
+
+    }
+</script>
+
+</html>

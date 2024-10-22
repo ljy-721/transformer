@@ -1,0 +1,483 @@
+body {
+    background-color: #253e83;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.app {
+    width: 100%;
+    padding: 20px;
+}
+
+.header {
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.header_one {
+    width: 30%;
+    height: 35px;
+    background-color: #213979;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+.header_one_item {
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 3px;
+    padding: 0 8px;
+    height: 26px;
+    min-width: 100px;
+    line-height: 26px;
+    font-size: 14px;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    user-select: none;
+}
+.header_one_item i {
+    cursor: pointer;
+}
+
+.header_calendar {
+    width: 30%;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    background-color: #213979;
+}
+.header_calendar_left,.header_calendar_right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    width: 25%;
+    cursor: pointer;
+    user-select: none;
+}
+.header_calendar_left_txt {
+    margin-left: 5px;
+}
+.header_calendar_right_txt {
+    margin-right: 5px;
+}
+.header_calendar_center {
+    position: relative;
+    width: 0;
+    flex-grow: .8;
+}
+.header_calendar_center_date {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+.header_calendar_center_date i {
+    font-size: 20px;
+}
+.header_calendar_center input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+    z-index: 2;
+    opacity: 0;
+}
+
+.header_searchBtn {
+    width: 80px;
+    height: 35px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #fff;
+    background-color: #2c89de;
+    margin-left: 10px;
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+
+
+.content_title {
+    font-size: 16px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+.content_title::before {
+    display: block;
+    content: "";
+    width: 5px;
+    height: 18px;
+    background-color: #2c89de;
+    margin-right: 8px;
+}
+
+
+.content_one {
+    display: flex;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+}
+.content_one_left {
+    width: 55%;
+    border-right: 1px solid rgba(255, 255, 255, .1);
+    padding: 20px;
+}
+.content_one_right {
+    width: 45%;
+    padding: 20px;
+}
+.content_one_left_list {
+    margin-top: 20px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+}
+.content_one_left_list_item {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content_one_left_list .content_one_left_list_item:nth-child(1) {
+    background-image: linear-gradient(to top right,#2cabf8,#1382f3);
+}
+.content_one_left_list .content_one_left_list_item:nth-child(2) {
+    background-image: linear-gradient(to top right,#ff7da1,#ff4269);
+}
+.content_one_left_list .content_one_left_list_item:nth-child(3) {
+    background-image: linear-gradient(to top right,#ac78e3,#773ecc);
+}
+.content_one_left_list_item_l {
+    width: 30px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 2px 1px #b9b9b9;
+}
+.content_one_left_list .content_one_left_list_item:nth-child(1) .content_one_left_list_item_l {
+    color: #2199f6;
+}
+.content_one_left_list .content_one_left_list_item:nth-child(2) .content_one_left_list_item_l {
+    color: #ff6186;
+}
+.content_one_left_list .content_one_left_list_item:nth-child(3) .content_one_left_list_item_l {
+    color: #915ad8;
+}
+.content_one_left_list_item_r {
+    text-align: right;
+    color: #fff;
+}
+.content_one_left_list_item_r_txt1 {
+    font-size: 18px;
+    font-weight: bold;
+}
+.content_one_left_list_item_r_txt1 span {
+    font-size: 12px;
+    font-weight: normal;
+}
+.content_one_left_list_item_r_txt2 {
+    font-size: 14px;
+}
+
+.content_one_left_type {
+    font-size: 16px;
+    color: #fff;
+    display: flex;
+    margin-top: 30px;
+    line-height: 16px;
+}
+.content_one_left_type_item {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+.content_one_left_type_item::before {
+    display: block;
+    content: "";
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+}
+.content_one_left_type_item:nth-child(1)::before {
+    background-color: #a9931a;
+}
+.content_one_left_type_item:nth-child(2)::before {
+    background-color: #159925;
+}
+.content_one_left_type_item:nth-child(3)::before {
+    background-color: #ac4141;
+}
+
+.content_one_left_tubiao {
+    width: 100%;
+    margin-top: 20px;
+}
+.content_one_left_tubiao_tit {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #e2e077;
+}
+
+.content_one_left_tubiao_top {
+    width: 100%;
+    height: 10px;
+    border-left: 2px solid rgba(255, 255, 255, .6);
+    display: flex;
+    margin-top: 25px;
+}
+.content_one_left_tubiao_top_item {
+    width: 10%;
+    height: 100%;
+    border-right: 2px solid rgba(255, 255, 255, .6);
+}
+
+.content_one_left_tubiao_cen {
+    position: relative;
+    margin-top: 6px;
+    width: 100%;
+    height: 6px;
+    background-color: #a9931a;
+}
+/* 经济运行 */
+.content_one_left_tubiao_cen_1 {
+    position: absolute;
+    /* left: 39%; */
+    top: 0;
+    /* width: 30%; */
+    height: 100%;
+    background-color: #159925;
+}
+/* 高损耗运行 */
+.content_one_left_tubiao_cen_2 {
+    position: absolute;
+    /* left: 85%; */
+    top: 0;
+    /* width: 10%; */
+    height: 100%;
+    background-color: #ac4141;
+}
+/* 指针 */
+.content_one_left_tubiao_cen_3 {
+    position: absolute;
+    /* top: -52px; */
+    bottom: -3px;
+    left: 1%;
+    width: 8px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.content_one_left_tubiao_cen_3::before{
+    display: block;
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.content_one_left_tubiao_cen_3::after {
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    border-width: 4px;
+    border-style: solid;
+    border-top-color: #fff;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-top-width: 10px;
+}
+.content_one_left_tubiao_cen_3_zj {
+    width: 2px;
+    height: 30px;
+    background-color: #fff;
+}
+
+.content_one_left_tubiao_bom {
+    position: relative;
+    width: 100%;
+    display: flex;
+    margin-top: 6px;
+}
+.content_one_left_tubiao_bom::before {
+    display: block;
+    content: "0";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff;
+    transform: translateX(-50%);
+}
+.content_one_left_tubiao_bom_item {
+    width: 10%;
+    transform: translateX(50%);
+    text-align: center;
+    color: #fff;
+}
+
+
+.content_one_right_con {
+    width: 100%;
+    display: flex;
+    margin-top: 15px;
+}
+.content_one_right_con_l {
+    width: 30%;
+}
+.content_one_right_con_l_item {
+    background-color: rgba(23, 43, 93, .8);;
+    padding: 15px 10px 10px 15px;
+    margin-bottom: 5px;
+}
+.content_one_right_con_l_item_t {
+    display: inline-block;
+    text-align: center;
+}
+.content_one_right_con_l_item_t_txt1 {
+    font-size: 18px;
+    color: rgba(255, 255, 255, .9);
+}
+.content_one_right_con_l_item_t_txt2 {
+    font-size: 14px;
+    color: rgba(255, 255, 255, .7);
+}
+.content_one_right_con_l_item_b {
+    text-align: right;
+    color: rgba(255, 255, 255, .5);
+    font-size: 14px;
+}
+
+.content_one_right_con_r {
+    width: 0;
+    flex-grow: 1;
+}
+
+.content_two {
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    margin-top: 20px;
+    padding: 20px;
+}
+.content_two_tags {
+    display: flex;
+}
+.content_two_tags_item {
+    background-color: rgba(23, 43, 93, .8);
+    border: 1px solid rgba(223, 220, 220, 0.2);
+    padding: 5px 15px;
+    color: rgba(255, 255, 255, .8);
+    margin-right: 10px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.content_two_tags_item:hover {
+    background-color: #2c89de;
+}
+.content_two_tags_item-active {
+    background-color: #2c89de;
+}
+.content_two_bom {
+    width: 100%;
+    height: 200px;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    .header_calendar {
+        width: 50%;
+    }
+    .content_one {
+        flex-direction: column;
+    }
+    .content_one_left,.content_one_right {
+        width: 100%;
+    }
+    .content_one_left {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, .1);;
+    }
+}
+@media screen and (max-width: 768px) {
+    .app {
+        padding: 5px;
+    }
+    .header {
+        flex-wrap: wrap;
+    }
+    .header_one {
+        width: 100%;
+    }
+    .header_calendar {
+        width: 75%;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .header_searchBtn {
+        margin-top: 10px;
+    }
+    .content_one_left {
+        padding: 5px;
+    }
+    .content_one_left_list {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 10px;
+        grid-column-gap: unset;
+        justify-content: space-evenly;
+        margin-top: 15px;
+    }
+    .content_one_left_list_item {
+        padding: 10px;
+    }
+    .content_one_left_list_item:nth-child(3) {
+        margin-top: 15px;
+    }
+    .content_one_left_type {
+        margin-top: 15px;
+    }
+    .content_one_left_tubiao {
+        padding: 0 10px;
+    }
+    .content_one_left_tubiao_bom {
+        font-size: 12px;
+    }
+    .content_two {
+        padding: 10px;
+    }
+    .content_two_tags {
+        flex-wrap: wrap;
+    }
+    .content_two_tags_item {
+        margin-bottom: 8px;
+    }
+}
