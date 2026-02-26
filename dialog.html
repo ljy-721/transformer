@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dialog {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: #fff;
+            box-shadow: 0 0 5px 1px #ccc;
+            padding: 20px;
+            width: 300px;
+            border-radius: 5px;
+            padding-top: 0;
+            display: none;
+        }
+        .dialog-tit {
+            width: 100%;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+        }
+        .dialog-content {
+            margin-top: 20px;
+        }
+
+        .dialog-btns {
+            margin-top: 20px;
+        }
+
+        .dialog-btns-it {
+            width: 100%;
+            height: 35px;
+            text-align: center;
+            background-color: #0099FF;
+            line-height: 35px;
+            color: #fff;
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="dialog-btns-it" style="width: 100px;" onclick="dialogOpen()">弹窗</div>
+    <div class="dialog" id="dialog">
+        <div class="dialog-tit">温馨提示</div>
+        <div class="dialog-content">XXX!您好！您有XX条任务工作结果未提交！请尽快执行！</div>
+        <div class="dialog-btns">
+            <div class="dialog-btns-it" onclick="dialogClose()">确定</div>
+        </div>
+    </div>
+</body>
+<script>
+    let dialog = document.getElementById('dialog');
+    function dialogOpen(){
+        dialog.style.display = 'block';
+    };
+    function dialogClose(){
+        dialog.style.display = 'none';
+    };
+</script>
+</html>
